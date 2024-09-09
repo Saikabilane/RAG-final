@@ -1,27 +1,30 @@
-# Education Assistant
+![image](https://github.com/user-attachments/assets/98386865-97b9-4879-825c-13444c4b61eb)# Education Assistant
 
 ## Project Overview
 
-The **Anatomy Education Chatbot** is an AI-powered tool designed to assist students in understanding complex anatomy topics. By leveraging Gemini API and educational resources, this chatbot provides real-time answers and interactive diagrams to enhance the learning experience. The chatbot aims to be an accessible, engaging, and effective supplementary resource for students studying anatomy.
+This Education Chatbot is an interactive AI-powered tool designed to assist students in understanding complex anatomy topics. By leveraging provided educational resources, the chatbot provides real-time answers, flow charts, tables, chapter-wise answers for given exercises (in PDF format) and interactive diagrams. It also supports image based searches. The project aims to create an accessible, engaging, and user-friendly platform that supports students in mastering anatomy concepts.
+
 
 ## Features
 
 - **Real-Time Query Resolution:** Instant responses to user questions about anatomy.
-- **Interactive Diagrams:** Visual aids to enhance understanding of complex anatomical structures.
+- **Interactive Diagrams, Tables and Flowcharts:** Visual aids to enhance understanding of complex anatomical structures.
+- **Image Based Queries:** Supports Image Based Queries.
+- **Exercise Answers:** Provides answers for Book Exercises in PDF format.
 
 ## Architecture
 
 - **Frontend:** 
   - User-friendly interface made with Streamlit.
 - **Backend:** 
-  - Powered by a Gemini AI API, provides well structured and informational responses along with relevant images.
+  - Powered by a Gemini AI API and OpenCV, provides well structured and informational responses along with relevant images, tables and flowcharts.
 - **Data Sources:** 
   - The chatbot accesses a curated database of anatomy textbooks  provided  to ensure the accuracy of information provided.
 
 ## Technologies Used
 
 - **Programming Languages:** Python
-- **Tools:** Gemini API, Streamlt, Chroma DB, PyPDF, Pillow
+- **Tools:** Gemini API, OpenCV, Streamlt, Chroma DB, PyPDF, Pillow, GraphViz
 
 ## Installation
 
@@ -30,12 +33,12 @@ To set up the Anatomy Education Chatbot locally, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/Saikabilane/RAG.git
+   git clone https://github.com/Saikabilane/RAG-final.git
 
 2. **Navigate to the project directory:**
 
    ```bash
-   cd RAG
+   cd RAG-final
 
 3. **Create and activate a virtual environment:**
 
@@ -57,15 +60,19 @@ To set up the Anatomy Education Chatbot locally, follow these steps:
 1. **Get your API key:**
 
     - Get your Gemini API key from https://aistudio.google.com/app/apikey
-    - Use the API key in place of "Your-API-key" in my_script.py and st_app.py  
+    - Use the API key in place of "Your-API-key" in my_script.py and st_app.py
+
+2. **Prerequisites:**
+
+    - Install Graphiz sifteare on tour system for generating flowchart based responses.
    
-3. **Create a folder:**
+4. **Create a folder:**
 
    ```bash
    mkdir images
    ```
 
-4. **Run the python files**
+5. **Run the python files**
 
    ```bash
    python imageExtract.py
