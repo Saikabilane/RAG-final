@@ -64,7 +64,7 @@ To set up the Anatomy Education Chatbot locally, follow these steps:
 
 2. **Prerequisites:**
 
-    - Install Graphiz sifteare on tour system for generating flowchart based responses.
+    - Install Graphiz software on tour system for generating flowchart based responses.
    
 4. **Create a folder:**
 
