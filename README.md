@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/98386865-97b9-4879-825c-13444c4b61eb)# Education Assistant
+![image](https://github.com/user-attachments/assets/98386865-97b9-4879-825c-13444c4b61eb)
+## Education Assistant
 
 ## Project Overview
 
