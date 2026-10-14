@@ -1,98 +1,42 @@
-![image](https://github.com/user-attachments/assets/98386865-97b9-4879-825c-13444c4b61eb)
-## Education Assistant
+# Anatomy Education Assistant — Extended RAG Prototype
 
-## Project Overview
-
-This Education Chatbot is an interactive AI-powered tool designed to assist students in understanding complex anatomy topics. By leveraging provided educational resources, the chatbot provides real-time answers, flow charts, tables, chapter-wise answers for given exercises (in PDF format) and interactive diagrams. It also supports image based searches. The project aims to create an accessible, engaging, and user-friendly platform that supports students in mastering anatomy concepts.
-
+This repository extends the anatomy-focused retrieval-augmented generation (RAG) assistant with text retrieval, image and table lookup, chapter exercise support, PDF output and flowchart generation. The interface is built with Streamlit, retrieval uses local ChromaDB collections, and generated responses use Google's Gemini model.
 
 ## Features
+- Natural-language questions over a local anatomy knowledge collection.
+- Retrieval of related anatomy images and tables from metadata-backed collections.
+- Chapter/back-of-book exercise retrieval with generated answers.
+- PDF export of generated exercise content.
+- Experimental flowchart generation from text descriptions.
 
-- **Real-Time Query Resolution:** Instant responses to user questions about anatomy.
-- **Interactive Diagrams, Tables and Flowcharts:** Visual aids to enhance understanding of complex anatomical structures.
-- **Image Based Queries:** Supports Image Based Queries.
-- **Exercise Answers:** Provides answers for Book Exercises in PDF format.
+## Key files
+- `st_app.py` — main Streamlit interface and retrieval/generation functions.
+- `requirements.txt` — Python package dependencies.
+- `image_filenames.csv`, `csv_filenames.csv` — metadata mapping image/table descriptions to assets.
+- `imageExtract.py`, `img_fetch.py`, `tab_fetch.py`, `bookBack.py` — supporting extraction or ingestion scripts.
+- `collection/` — expected ChromaDB persistent store with text, image, table and book-back collections.
+- `anatomy_vol_3_edited_final.pdf`, `anatomy_vol_3_book_back.pdf` — source materials used by the project.
 
-## Architecture
+## Setup
+```bash
+git clone https://github.com/Saikabilane/RAG-final.git
+cd RAG-final
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# macOS/Linux: source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
 
-- **Frontend:** 
-  - User-friendly interface made with Streamlit.
-- **Backend:** 
-  - Powered by a Gemini AI API and OpenCV, provides well structured and informational responses along with relevant images, tables and flowcharts.
-- **Data Sources:** 
-  - The chatbot accesses a curated database of anatomy textbooks  provided  to ensure the accuracy of information provided.
+Prepare the local ChromaDB collections and image/table assets using the helper scripts and ensure the expected CSV files and directories are available. Then launch:
+```bash
+streamlit run st_app.py
+```
 
-## Technologies Used
+## API key security — important
+Configure Gemini credentials using environment variables or a local, untracked configuration file. **Do not commit API keys to source control.** This repository's application source has contained hard-coded credential strings; revoke/rotate any real keys that were committed, remove them from the code, and load replacement keys from the environment. Deleting a key from the latest version alone does not remove it from Git history.
 
-- **Programming Languages:** Python
-- **Tools:** Gemini API, OpenCV, Streamlt, Chroma DB, PyPDF, Pillow, GraphViz
+## Limitations
+This is an educational prototype. Generated answers can be inaccurate; verify material against authoritative sources. It is not a substitute for professional medical advice.
 
-## Installation
-
-To set up the Anatomy Education Chatbot locally, follow these steps:
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/Saikabilane/RAG-final.git
-
-2. **Navigate to the project directory:**
-
-   ```bash
-   cd RAG-final
-
-3. **Create and activate a virtual environment:**
-
-    ```bash
-    python -m venv venv
-    ```
-    ```bash
-    venv\Scripts\activate
-    ```
-
-4. **Install the required dependencies:**
-
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-## Initial Setup
-
-1. **Get your API key:**
-
-    - Get your Gemini API key from https://aistudio.google.com/app/apikey
-    - Use the API key in place of "Your-API-key" in my_script.py and st_app.py
-
-2. **Prerequisites:**
-
-    - Install Graphiz software on tour system for generating flowchart based responses.
-   
-4. **Create a folder:**
-
-   ```bash
-   mkdir images
-   ```
-
-5. **Run the python files**
-
-   ```bash
-   python imageExtract.py
-   ```
-   ```bash
-   python img_fetch.py
-   ```
-   ```bash
-   python my_script.py
-   ```
-
-## Usage
-
-1. **Run the Application:**
-
-   ```bash
-   streamlit run .\st_app.py
-   ```
-2. **Ask your Queries to the Education Assistant chatbot**
-
-   
-
+## License
+No license file is currently included; contact the repository owner for reuse permission.
